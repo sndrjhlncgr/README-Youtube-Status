@@ -1,0 +1,145 @@
+<svg width="480" height="133" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <foreignObject width="480" height="133">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="container">
+            <style>
+
+                div {
+                    font-family: Roboto;
+                }
+
+                .main {
+                    display: flex;
+                    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.48);
+                    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.48);
+                    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.48);
+                    width:99%;
+                    padding: 10px 0px 7px 0px;
+                    border-radius: 13px;
+                    position: relative;
+
+                }
+
+                .container {
+                    margin-left:5px;
+                    padding: 5px 0px 5px 0px;
+                }
+
+
+                .art {
+                    float: left;
+                    width: 27%;
+                    margin-left: -1px;
+                }
+
+                .text {
+                    width: 72%;
+                }
+
+                .channel-name {
+                    font-size: 25px;
+                    color: #666;
+
+                    text-align: left;
+                    margin-top: 3px;
+                }
+
+                .channel-info {
+                    float: left !important;
+                    width: 90%;
+                }
+
+                .channel-subscriber {
+                    font-size: 13px;
+                    color: #b3b3b3;
+                    text-align: center;
+                    margin-bottom: 5px;
+                    float: left !important;
+                }
+
+                .album-cover {
+                    border-radius: 50%;
+                    height: 100px;
+                    width: 100px;
+                }
+
+               .ribbon {
+                  position: absolute;
+                  right: -5px; top: -5px;
+                  z-index: 1;
+                  overflow: hidden;
+                  width: 75px; height: 75px;
+                  text-align: right;
+                }
+                .ribbon span {
+                  font-size: 10px;
+                  font-weight: bold;
+                  color: #FFF;
+                  text-transform: uppercase;
+                  text-align: center;
+                  line-height: 20px;
+                  transform: rotate(45deg);
+                  -webkit-transform: rotate(45deg);
+                  width: 100px;
+                  display: block;
+                  background: #79A70A;
+                  background: linear-gradient(#F70505 0%, #8F0808 100%);
+                  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+                  position: absolute;
+                  top: 19px; right: -21px;
+                }
+                .ribbon span::before {
+                  content: "";
+                  position: absolute; left: 0px; top: 100%;
+                  z-index: -1;
+                  border-left: 3px solid #8F0808;
+                  border-right: 3px solid transparent;
+                  border-bottom: 3px solid transparent;
+                  border-top: 3px solid #8F0808;
+                }
+                .ribbon span::after {
+                  content: "";
+                  position: absolute; right: 0px; top: 100%;
+                  z-index: -1;
+                  border-left: 3px solid transparent;
+                  border-right: 3px solid #8F0808;
+                  border-bottom: 3px solid transparent;
+                  border-top: 3px solid #8F0808;
+                }
+
+                .youtube-logo {
+                    width:52%;
+                    height: 52%;
+                    margin-bottom:-3px;
+                    margin-right: 1px;
+                }
+
+            </style>
+
+            {% if channelName %}
+
+            <div class="main">
+                <div class="ribbon">
+                    <span>
+                        <img src="data:image/png;base64, {{youtubeIcon}}" class="youtube-logo"/>
+                    </span>
+                </div>
+                <a class="art" href="{}" target="_BLANK">
+                    <center>
+                            <img src="data:image/png;base64, {{channelLogo}}" class="album-cover" />
+                    </center>
+                </a>
+                <div class="text">
+                    <div class="channel-info">
+                        <div class="channel-name">{{channelName}}</div>
+                        <div class="channel-subscriber">{{channelSubscriberCount}} subscribers</div>
+                    </div>
+                </div>
+
+                {% else %}
+                    <div class="No Youtube Status">No Youtube Status</div>
+                {% endif %}
+            </div>
+
+        </div>
+    </foreignObject>
+</svg>

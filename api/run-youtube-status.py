@@ -8,7 +8,7 @@ from pyyoutube import Api
 
 load_dotenv(find_dotenv())
 
-YOUTUBE_API = Api(api_key='AIzaSyABfEd-GTQ1Aff4qye6WqI54_vYv5aqJtw')
+YOUTUBE_API = Api(api_key='')
 
 app = Flask(__name__, template_folder="components")
 
