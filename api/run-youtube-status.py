@@ -8,7 +8,7 @@ from pyyoutube import Api
 
 load_dotenv(find_dotenv())
 
-YOUTUBE_API = Api(api_key='')
+YOUTUBE_API = Api(api_key='AIzaSyABfEd-GTQ1Aff4qye6WqI54_vYv5aqJtw')
 
 app = Flask(__name__, template_folder="components")
 
@@ -28,7 +28,7 @@ def getYoutubeInfo():
         "channelViewCounts": youtubeInfo.statistics.viewCount,
         "channelSubscriberCount": youtubeInfo.statistics.subscriberCount,
         "channelVideoCount": youtubeInfo.statistics.videoCount,
-        "channelBanner": loadImageB64(youtubeInfo.brandingSettings.image.bannerMobileImageUrl),
+        "channelBanner": youtubeInfo.brandingSettings.image.bannerMobileImageUrl,
         "youtubeIcon": loadImageB64(
             "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/YouTube_light_logo_%282017%29.svg/1920px-YouTube_light_logo_%282017%29.svg.png")
     }
