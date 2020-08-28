@@ -1,16 +1,17 @@
+from flask import Flask, Response, render_template
 from base64 import b64encode
-import requests, locale, os
-from flask import Flask, render_template, Response
 from dotenv import load_dotenv, find_dotenv
-from pyyoutube import Api
+import requests, locale, os
+import pyyoutube
 
+load_dotenv(find_dotenv())
 load_dotenv(find_dotenv())
 locale.setlocale(locale.LC_ALL, 'en_US')
 
-YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
-YOUTUBE_CHANNEL_ID = os.getenv("YOUTUBE_CHANNEL_ID")
+YOUTUBE_API_KEY = "AIzaSyABfEd-GTQ1Aff4qye6WqI54_vYv5aqJtw"
+YOUTUBE_CHANNEL_ID = "UCi3mbICnce7yIU1NGhgoSPw"
 
-YOUTUBE_API = Api(api_key=YOUTUBE_API_KEY)
+YOUTUBE_API = pyyoutube.Api(api_key=YOUTUBE_API_KEY)
 
 app = Flask(__name__, template_folder="components")
 
