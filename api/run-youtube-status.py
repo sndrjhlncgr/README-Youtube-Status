@@ -24,15 +24,16 @@ def loadImageB64(url):
 def getYoutubeInfo():
     CHANNEL_ID = YOUTUBE_API.get_channel_info(channel_id=YOUTUBE_CHANNEL_ID)
     youtubeInfo = CHANNEL_ID.items[0]
+    urlLogo = str(youtubeInfo.snippet.thumbnails.high.url)
     youtubeObjects = {
         "channelName": youtubeInfo.snippet.title,
-        "channelLogo": loadImageB64(youtubeInfo.snippet.thumbnails.high.url),
+        "channelLogo": loadImageB64(urlLogo),
         "channelCountry": youtubeInfo.snippet.country,
         "channelCountryLogo": loadImageB64("https://simpleicon.com/wp-content/uploads/world.png"),
-        "channelViewCounts": locale.format('%d', int(youtubeInfo.statistics.viewCount), grouping=True),
+        "channelViewCounts": locale.format_string('%d', int(youtubeInfo.statistics.viewCount), grouping=True),
         "channelViewLogo": loadImageB64("https://simpleicon.com/wp-content/uploads/eye_1.png"),
-        "channelSubscriberCount": locale.format('%d', int(youtubeInfo.statistics.subscriberCount), grouping=True),
-        "channelVideoCount": locale.format('%d', int(youtubeInfo.statistics.videoCount), grouping=True),
+        "channelSubscriberCount": locale.format_string('%d', int(youtubeInfo.statistics.subscriberCount), grouping=True),
+        "channelVideoCount": locale.format_string('%d', int(youtubeInfo.statistics.videoCount), grouping=True),
         "channelVideoLogo": loadImageB64("https://simpleicon.com/wp-content/uploads/cloud-upload-2.png"),
         "channelBanner": youtubeInfo.brandingSettings.image.bannerImageUrl,
         "youtubeIcon": loadImageB64(
