@@ -8,8 +8,8 @@ load_dotenv(find_dotenv())
 load_dotenv(find_dotenv())
 locale.setlocale(locale.LC_ALL, 'en_US')
 
-YOUTUBE_API_KEY = "AIzaSyABfEd-GTQ1Aff4qye6WqI54_vYv5aqJtw"
-YOUTUBE_CHANNEL_ID = "UCi3mbICnce7yIU1NGhgoSPw"
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
+YOUTUBE_CHANNEL_ID = os.getenv("YOUTUBE_CHANNEL_ID")
 
 YOUTUBE_API = pyyoutube.Api(api_key=YOUTUBE_API_KEY)
 
@@ -23,19 +23,19 @@ def loadImageB64(url):
 
 def getYoutubeInfo():
     CHANNEL_ID = YOUTUBE_API.get_channel_info(channel_id=YOUTUBE_CHANNEL_ID)
-    youtubeInfo = CHANNEL_ID.items[0]
-    urlLogo = str(youtubeInfo.snippet.thumbnails.high.url)
+    youtubeInfo = CHANNEL_ID.items[0].to_dict()
     youtubeObjects = {
-        "channelName": youtubeInfo.snippet.title,
-        "channelLogo": loadImageB64(urlLogo),
-        "channelCountry": youtubeInfo.snippet.country,
+        "channelName": youtubeInfo['snippet']['title'],
+        "channelLogo": loadImageB64(youtubeInfo['snippet']['thumbnails']['high']['url']),
+        "channelCountry": youtubeInfo['snippet']['country'],
         "channelCountryLogo": loadImageB64("https://simpleicon.com/wp-content/uploads/world.png"),
-        "channelViewCounts": locale.format_string('%d', int(youtubeInfo.statistics.viewCount), grouping=True),
+        "channelViewCounts": locale.format_string('%d', int(youtubeInfo['statistics']['viewCount']), grouping=True),
         "channelViewLogo": loadImageB64("https://simpleicon.com/wp-content/uploads/eye_1.png"),
-        "channelSubscriberCount": locale.format_string('%d', int(youtubeInfo.statistics.subscriberCount), grouping=True),
-        "channelVideoCount": locale.format_string('%d', int(youtubeInfo.statistics.videoCount), grouping=True),
+        "channelSubscriberCount": locale.format_string('%d', int(youtubeInfo['statistics']['subscriberCount']),
+                                                       grouping=True),
+        "channelVideoCount": locale.format_string('%d', int(youtubeInfo['statistics']['videoCount']), grouping=True),
         "channelVideoLogo": loadImageB64("https://simpleicon.com/wp-content/uploads/cloud-upload-2.png"),
-        "channelBanner": youtubeInfo.brandingSettings.image.bannerImageUrl,
+        "channelBanner": youtubeInfo['brandingSettings']['image']['bannerImageUrl'],
         "youtubeIcon": loadImageB64(
             "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/YouTube_light_logo_%282017%29.svg/1920px-YouTube_light_logo_%282017%29.svg.png"),
         "verifiedBadge": loadImageB64(
