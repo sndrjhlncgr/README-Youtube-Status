@@ -24,7 +24,6 @@ def loadImageB64(url):
 def getYoutubeInfo():
     CHANNEL_ID = YOUTUBE_API.get_channel_info(channel_id=YOUTUBE_CHANNEL_ID)
     youtubeInfo = CHANNEL_ID.items[0]
-    print(youtubeInfo.to_json())
     youtubeObjects = {
         "channelName": youtubeInfo.snippet.title,
         "channelLogo": loadImageB64(youtubeInfo.snippet.thumbnails.high.url),
