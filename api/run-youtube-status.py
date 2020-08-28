@@ -1,8 +1,7 @@
 from flask import Flask, Response, render_template
 from base64 import b64encode
 from dotenv import load_dotenv, find_dotenv
-import requests, locale, os
-import pyyoutube
+import requests, locale, os, pyyoutube
 
 load_dotenv(find_dotenv())
 load_dotenv(find_dotenv())
@@ -31,7 +30,8 @@ def getYoutubeInfo():
         "channelCountryLogo": loadImageB64("https://i.ibb.co/3W1mQmN/earth.png"),
         "channelViewCounts": locale.format_string('%d', int(youtubeInfo['statistics']['viewCount']), grouping=True),
         "channelViewLogo": loadImageB64("https://i.ibb.co/RyH0NZb/eye-1.png"),
-        "channelSubscriberCount": locale.format_string('%d', int(youtubeInfo['statistics']['subscriberCount']), grouping=True),
+        "channelSubscriberCount": locale.format_string('%d', int(youtubeInfo['statistics']['subscriberCount']),
+                                                       grouping=True),
         "channelVideoCount": locale.format_string('%d', int(youtubeInfo['statistics']['videoCount']), grouping=True),
         "channelVideoLogo": loadImageB64("https://i.ibb.co/zxtRkpp/cloud-upload-2.png"),
         "channelBanner": youtubeInfo['brandingSettings']['image']['bannerImageUrl'],
