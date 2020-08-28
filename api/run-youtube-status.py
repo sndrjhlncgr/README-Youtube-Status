@@ -28,13 +28,12 @@ def getYoutubeInfo():
         "channelName": youtubeInfo['snippet']['title'],
         "channelLogo": loadImageB64(youtubeInfo['snippet']['thumbnails']['high']['url']),
         "channelCountry": youtubeInfo['snippet']['country'],
-        "channelCountryLogo": loadImageB64("https://simpleicon.com/wp-content/uploads/world.png"),
+
         "channelViewCounts": locale.format_string('%d', int(youtubeInfo['statistics']['viewCount']), grouping=True),
-        "channelViewLogo": loadImageB64("https://simpleicon.com/wp-content/uploads/eye_1.png"),
-        "channelSubscriberCount": locale.format_string('%d', int(youtubeInfo['statistics']['subscriberCount']),
-                                                       grouping=True),
+
+        "channelSubscriberCount": locale.format_string('%d', int(youtubeInfo['statistics']['subscriberCount']), grouping=True),
         "channelVideoCount": locale.format_string('%d', int(youtubeInfo['statistics']['videoCount']), grouping=True),
-        "channelVideoLogo": loadImageB64("https://simpleicon.com/wp-content/uploads/cloud-upload-2.png"),
+
         "channelBanner": youtubeInfo['brandingSettings']['image']['bannerImageUrl'],
         "youtubeIcon": loadImageB64(
             "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/YouTube_light_logo_%282017%29.svg/1920px-YouTube_light_logo_%282017%29.svg.png"),
