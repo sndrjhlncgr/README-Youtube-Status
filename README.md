@@ -32,7 +32,6 @@ Configure Vercel Application
 Put this in your README.md
 ------
 ``` 
-### Youtube Channel 
 [<img src="https://{DOMAIN_OF_YOUR_VERCEL_APP}/api/run-youtube-status" alt="Your alt what" width="350" />](LINK_TO_YOUR_ACCOUNT)
 ```
 
