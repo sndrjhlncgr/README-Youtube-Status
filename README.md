@@ -14,6 +14,13 @@
 Google Developer
 ------
  * Create account here: https://console.developers.google.com
+ * Go to **Credentials**
+ * Click **+ Create Credentials** then choose Api Key
+ * Get your API KEY (ex: AI*****************************)
+ * After you get yout Api key you need to **Restrict** it.
+ * Find **API restrictions** then select **Youtube Data API V3**.
+   - **Note:** Make sure you enable [Youtube Data API V3](https://console.developers.google.com/apis/library)
+ * Save
 
 Configure Vercel Application
 ------
