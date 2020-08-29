@@ -30,12 +30,15 @@ def getYoutubeInfo():
         "channelCountryLogo": loadImageB64("https://i.ibb.co/3W1mQmN/earth.png"),
         "channelViewCounts": locale.format_string('%d', int(youtubeInfo['statistics']['viewCount']), grouping=True),
         "channelViewLogo": loadImageB64("https://i.ibb.co/RyH0NZb/eye-1.png"),
-        "channelSubscriberCount": locale.format_string('%d', int(youtubeInfo['statistics']['subscriberCount']),grouping=True),
+        "channelSubscriberCount": locale.format_string('%d', int(youtubeInfo['statistics']['subscriberCount']),
+                                                       grouping=True),
         "channelVideoCount": locale.format_string('%d', int(youtubeInfo['statistics']['videoCount']), grouping=True),
         "channelVideoLogo": loadImageB64("https://i.ibb.co/zxtRkpp/cloud-upload-2.png"),
         "channelBanner": youtubeInfo['brandingSettings']['image']['bannerImageUrl'],
-        "youtubeIcon": loadImageB64("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/YouTube_light_logo_%282017%29.svg/1920px-YouTube_light_logo_%282017%29.svg.png"),
-        "verifiedBadge": loadImageB64("https://www.seekpng.com/png/full/132-1323946_features-overview-youtube-verified-check-mark-png.png")
+        "youtubeIcon": loadImageB64(
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/YouTube_light_logo_%282017%29.svg/1920px-YouTube_light_logo_%282017%29.svg.png"),
+        "verifiedBadge": loadImageB64(
+            "https://www.seekpng.com/png/full/132-1323946_features-overview-youtube-verified-check-mark-png.png")
     }
 
     return render_template("youtubeStatus.html.j2", **youtubeObjects)
