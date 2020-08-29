@@ -11,6 +11,10 @@
    <img src="https://youtube-status.vercel.app/api/run-youtube-status" alt="Youtube Channel" width="500" />
 <p align="center">
 
+Google Developer
+------
+ * Create account here: https://console.developers.google.com
+
 Configure Vercel Application
 ------
 * Fork this [Youtube Status](https://github.com/sndrjhlncgr/README-Youtube-Status)
